@@ -24,14 +24,14 @@ const addEvent = () => {
 <template>
   <form @submit.prevent="addEvent" class="form">
     <div class="form-row">
-      <input id="title" v-model="title" type="text" placeholder="Event title" />
+      <input id="title" v-model="title" type="text" placeholder="Event Title" />
     </div>
 
     <div class="form-row">
       <input id="end" v-model="endDate" type="datetime-local" />
     </div>
 
-    <button type="submit">Add Countdown Event</button>
+    <button type="submit">Start Countdown</button>
   </form>
 </template>
 

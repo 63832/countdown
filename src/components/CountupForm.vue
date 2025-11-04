@@ -5,33 +5,29 @@ import { useCountupStore } from '@/stores/countupStore'
 const store = useCountupStore()
 
 const title = ref('')
-const startDate = ref('')
 
 const addEvent = () => {
-  if (!title.value || !startDate.value) return
+  if (!title.value) return
 
   store.addEvent({
     id: Date.now(),
     title: title.value,
-    start: startDate.value,
+    start: new Date().toISOString(),
+    stopped: false, // indicates if the timer has been stopped
+    elapsed: 0, // store elapsed milliseconds when stopped
   })
 
   title.value = ''
-  startDate.value = ''
 }
 </script>
 
 <template>
   <form @submit.prevent="addEvent" class="form">
     <div class="form-row">
-      <input id="title" v-model="title" type="text" placeholder="Event title" />
+      <input id="title" v-model="title" type="text" placeholder="Event Title" />
     </div>
 
-    <div class="form-row">
-      <input id="start" v-model="startDate" type="datetime-local" />
-    </div>
-
-    <button type="submit">Add Countup Event</button>
+    <button type="submit">Start Countup</button>
   </form>
 </template>
 
