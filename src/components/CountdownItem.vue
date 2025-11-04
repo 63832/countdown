@@ -46,7 +46,7 @@ const remainingText = computed(() => {
   <div class="countdown-card">
     <div class="title-row">
       <h2>{{ event.title }}</h2>
-      <button @click="remove">Ta bort</button>
+      <button @click="remove">Delete</button>
     </div>
 
     <p>{{ remainingText }}</p>
@@ -62,7 +62,13 @@ const remainingText = computed(() => {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin-bottom: 8px;
   width: 300px;
+  transition: all 0.5s ease;
+}
+
+.countdown-card:hover {
+  background-color: lightgray;
 }
 
 .title-row {

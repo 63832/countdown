@@ -83,7 +83,7 @@ const elapsedText = computed(() => {
   <div class="countdown-card">
     <div class="title-row">
       <h2>{{ event.title }}</h2>
-      <button @click="remove">Ta bort</button>
+      <button class="delete-btn" @click="remove">Delete</button>
     </div>
 
     <p>{{ elapsedText }}</p>
@@ -96,6 +96,18 @@ const elapsedText = computed(() => {
 </template>
 
 <style scoped>
+.delete-btn {
+  background-color: #e53e3e; /* red */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #c53030; /* darker red on hover */
+}
 .countdown-card {
   background-color: white;
   padding: 1rem;
